@@ -62,9 +62,11 @@ python build_dataset_format.py [dataset_dir] [separated_dir] \
  [output_dir]
 ```
 
+where `[output_dir]` here is a directory to store the dataset with a similar file structure format as MIR-ST500.
+
 ### Feature extraction
 
-Please first modify `gen_feature.yaml` by setting `audio_dir` to your `output_dir`in the last step. Then:
+Please first modify `gen_feature.yaml` by setting `audio_dir` to your `[output_dir]` at the last step. Then:
 
 ```
 cd feature_extraction
@@ -173,7 +175,7 @@ Finally, to obtain the COn, COnP, and COnPOff F1-scores, run the following comma
 python evaluate.py [gt_file] [predicted_file] [tol]
 ```
 
-where `gt_file` is the path to the groundtruth note labels (JSON file, must be strong labels), `predicted_file` is the path to the predicted JSON file, `tol` is the onset tolerance, which is usually set to `0.05` (i.e., 50ms).
+where `gt_file` is the path to the groundtruth note labels (JSON file, which should be `JBM555_trim_note_annotation.json` in this case), `predicted_file` is the path to the predicted JSON file, `tol` is the onset tolerance, which is usually set to `0.05` (i.e., 50ms).
 
 This python program will then compute the model performance.
 
@@ -185,8 +187,6 @@ python do_everything.py [input_path] [output_path] \
 ```
 
 where `input_path` is the path to the audio file to be transcribed; `output_path` is the path to the MIDI file that the transcription will be written to; `model_path` is the path to the model checkpoint for singing transcription; `yaml_path` is the path to the config yaml file; `device` specifies the device used to perform singing transcription. To use our APSIPA baseline version (pretrained model), `model_path` should be set to `models/jbm555_80`, and `yaml_path` should be set to `config/inference_jbm.yaml`.
-
-
 
 For example:
 
