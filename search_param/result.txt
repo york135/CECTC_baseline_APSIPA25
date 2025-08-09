@@ -1,0 +1,8 @@
+Training set metrics path: jbm_result.pkl
+Training set threshold data path: jbm_thres.json
+Best epoch 93 onset threshold = 0.4 offset threshold = 0.7000000000000001
+         Precision Recall F1-score
+COnPOff  0.592963 0.595312 0.591867
+COnP     0.770172 0.771418 0.767279
+COn      0.859859 0.859422 0.855440
+gt note num: 46868.0 tr note num: 46359.0
