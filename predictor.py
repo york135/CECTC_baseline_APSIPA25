@@ -74,19 +74,19 @@ class CTC_CE_loss(nn.Module):
             # btw, 0 is blank.
 
             # # Original ver.
-            # on_off_seq.append(2)
-            # for i in range(len(batch[4][0])):
-            #     on_off_seq.append(1)
-            #     on_off_seq.append(int(batch[4][0][i])-36+3)
-            #     on_off_seq.append(2)
+            on_off_seq.append(2)
+            for i in range(len(batch[4][0])):
+                on_off_seq.append(1)
+                on_off_seq.append(int(batch[4][0][i])-36+3)
+                on_off_seq.append(2)
 
 
             # Nakamura ver: 0: blank, 1:silence, 2:have pitch
             # [1, pitch, 1, pitch, 1, ......]
-            on_off_seq.append(1)
-            for i in range(len(batch[4][0])):
-                on_off_seq.append(int(batch[4][0][i])-36+2)
-                on_off_seq.append(1)
+            # on_off_seq.append(1)
+            # for i in range(len(batch[4][0])):
+            #     on_off_seq.append(int(batch[4][0][i])-36+2)
+            #     on_off_seq.append(1)
 
             on_off_seq = torch.tensor([on_off_seq,])
 
